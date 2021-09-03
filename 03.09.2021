@@ -1,0 +1,99 @@
+#include <iostream>
+using namespace std;
+
+void Task1() {
+	setlocale(0, "");
+	int quantity, num, cost;
+	float price;
+	cout << "Введите количество типов товара ";
+	cin >> quantity;
+	cost = 0;
+	for (int i = 1; i <= quantity; i++) {
+		cout << "Введите количество " << i << " товара ";
+		cin >> num;
+		cout << "Введите цену " << i << " товара ";
+		cin >> price;
+		cost = num * price + cost;
+	}
+	cout << "Итоговая стоимость покупки " << cost << endl;
+}
+void Task2() {
+	setlocale(0, "");
+	int first, second, third;
+	cout << "Введите значение переменной = ";
+	cin >> first;
+	second = first + 24;
+	third = (first + second) * 2;
+	cout << "Значение второй переменной =" << second << endl << "Значение третьей переменной = " << third << endl;
+}
+void Task3() {
+	setlocale(0, "");
+	int number;
+	cout << "Введите четырёхзначное число ";
+	cin >> number;
+	cout << "Число, выведенное наоборот  ";
+	for (int i = 1; i <= 4; i++) {
+		cout << number % 10;
+		number /= 10;
+	}
+	cout << endl;
+}
+void Task4() {
+	setlocale(0, "");
+	int x, stop = 1;
+	while (stop != 2) {
+		cout << "Выберите число действия: \n" << "1 Возвести число в куб\n" << "2 Выйти из программы\n";
+		cin >> stop;
+		if (stop == 1) {
+			cout << "Введите значение x = ";
+			cin >> x;
+			cout << x << "^3 = " << pow(x, 3) << endl;
+		}
+	}
+}
+void Task5() {
+	setlocale(LC_ALL, "rus");
+	int min, max, i, j, a = 0, sum = 0;
+	cout << "Введите минимальное значение диапазона ";
+	cin >> min;
+	cout << "Введите максимальное значение диапазона ";
+	cin >> max;
+	for (i = min; i < max; i++) {
+		for (j = 1; j <= i; j++) {
+			if (i % j == 0)
+				a = a + 1;
+		}
+		if (a == 2)
+			sum = sum + i;
+		a = 0;
+	}
+	cout << "Сумма простых чисел диапазона [" << min << "; " << max << "] равна " << sum << endl;
+}
+
+int main()
+{
+	setlocale(0, "");
+	int numTask = 1;
+	while (numTask != 6) {
+		cout << "Выберите номер задания, если хотите выйти из программы, напишите 0 \n";
+		cin >> numTask;
+		if (numTask == 1) {
+			Task1();
+		}
+		if (numTask == 2) {
+			Task2();
+		}
+		if (numTask == 3) {
+			Task3();
+		}
+		if (numTask == 4) {
+			Task4();
+		}
+		if (numTask == 5) {
+			Task5();
+		}
+		if (numTask == 0) {
+			return 0;
+		}
+	}
+}
